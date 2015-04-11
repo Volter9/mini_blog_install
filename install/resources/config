@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * App's config
+ */
+
+return [
+    'database' => [
+        'autoload' => true,
+        'default' => [
+            'host'     => '%s',
+            'user'     => '%s',
+            'name'     => '%s',
+            'password' => '%s',
+            'charset'  => 'utf8'
+        ]
+    ],
+    
+    'templates' => [
+        'directory' => MF_BASEPATH . 'templates/',
+        'template'  => 'minimalism'
+    ],
+    
+    'routing' => [
+        'symbols' => [
+            '/:any' => '/?([\d\w\-_]+)',
+            '/:num' => '/?(\d+)'
+        ]
+    ],
+    
+    'hooks' => [
+        MF_APP_DIR . 'bootstrap',
+        MF_APP_DIR . 'routes',
+        MF_APP_DIR . 'admin/routes'
+    ],
+    
+    'autoload' => [
+        'models' => ['users'],
+        'files'  => [
+            'app/admin/components/loader',
+            'app/admin/components/admin',
+            'app/admin/components/modules'
+        ]
+    ],
+    
+    'i18n' => [
+        'default' => '%s'
+    ]
+];
