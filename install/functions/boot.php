@@ -39,7 +39,7 @@ function load_language () {
  * @return string
  */
 function mb_basepath () {
-    return defined('MF_APP_DIR') ? MF_APP_DIR : BASEPATH;
+    return defined('MF_BASEPATH') ? MF_BASEPATH : BASEPATH;
 }
 
 require 'array.php';
