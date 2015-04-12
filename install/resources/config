@@ -8,9 +8,9 @@ return [
     'database' => [
         'autoload' => true,
         'default' => [
+            'name'     => '%s',
             'host'     => '%s',
             'user'     => '%s',
-            'name'     => '%s',
             'password' => '%s',
             'charset'  => 'utf8'
         ]
