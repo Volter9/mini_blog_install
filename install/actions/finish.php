@@ -31,36 +31,14 @@ function action_get ($input) {
  */
 function action_post ($input) {
     try {
-        extract_archive(basepath() . '/mini_blog.zip', basepath());
         modify_config(
-            basepath() . '/app/config.php', 
-            basepath() . '/install/resources/config'
+            sprintf('%s/app/config.php', mb_basepath()), 
+            sprintf('%s/install/resources/config', basepath())
         );
-        upload_dump(basepath() . '/mini_blog.sql');
+        upload_dump(sprintf('%s/mini_blog.sql', mb_basepath()));
     }
     catch (Exception $e) {
         die($e->getMessage());
-    }
-}
-
-/**
- * Extract archive
- * 
- * @throws \Exception
- * @param string $file
- * @param string $destination
- */
-function extract_archive ($file, $destination) {
-    $zip = new ZipArchive;
-    
-    if ($zip->open($file)) {
-        $zip->extractTo($destination);
-        $zip->close();
-        
-        @unlink($file);
-    }
-    else {
-        throw new Exception("File '$file' cannot be opened!");
     }
 }
 
@@ -70,7 +48,7 @@ function extract_archive ($file, $destination) {
  * @param string $file
  */
 function upload_dump ($file) {
-    $pdo = create_connection(session('database'));
+    $pdo = create_pdo(session('database'));
     $pdo->exec(file_get_contents($file));
 }
 

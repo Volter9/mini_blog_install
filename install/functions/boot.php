@@ -32,6 +32,16 @@ function load_language () {
     load_lang("install/lang/$language");
 }
 
+/**
+ * Get mini_blog's basepath (constant MF_APP_DIR should be defined already,
+ * additional check is just in case)
+ * 
+ * @return string
+ */
+function mb_basepath () {
+    return defined('MF_APP_DIR') ? MF_APP_DIR : BASEPATH;
+}
+
 require 'array.php';
 require 'routing.php';
 require 'view.php';
