@@ -39,7 +39,7 @@ function method () {
  * @return string
  */
 function baseurl () {
-    $base = trim(basepath(), '/');
+    $base = trim(mb_basepath(), '/');
     $root = trim(document_root(), '/');
     $lenght = strlen($root);
 
