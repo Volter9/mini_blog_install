@@ -35,7 +35,12 @@ function action_post ($input) {
             sprintf('%s/app/config.php', mb_basepath()), 
             sprintf('%s/install/resources/config', basepath())
         );
+        
         upload_dump(sprintf('%s/mini_blog.sql', mb_basepath()));
+        
+        @unlink(sprintf('%s/index.php', basepath()));
+        
+        view('views/start');
     }
     catch (Exception $e) {
         die($e->getMessage());
