@@ -32,6 +32,10 @@ function action_get ($input) {
 function action_post ($input) {
     try {
         extract_archive(basepath() . '/mini_blog.zip', basepath());
+        modify_config(
+            basepath() . '/app/config.php', 
+            basepath() . '/install/resources/config'
+        );
         upload_dump(basepath() . '/mini_blog.sql');
     }
     catch (Exception $e) {
@@ -53,7 +57,7 @@ function extract_archive ($file, $destination) {
         $zip->extractTo($destination);
         $zip->close();
         
-        unlink($file);
+        @unlink($file);
     }
     else {
         throw new Exception("File '$file' cannot be opened!");
@@ -67,8 +71,23 @@ function extract_archive ($file, $destination) {
  */
 function upload_dump ($file) {
     $pdo = create_connection(session('database'));
-    
     $pdo->exec(file_get_contents($file));
+}
+
+/**
+ * Modify config
+ * 
+ * @param string $original
+ * @param string $modified
+ */
+function modify_config ($original, $modified) {
+    $file = file_get_contents($modified);
+    
+    $array = array_values(session('database'));
+    $array[] = cookie('language');
+    
+    array_unshift($array, $file);
+    file_put_contents($original, call_user_func_array('sprintf', $array));
 }
 
 /**

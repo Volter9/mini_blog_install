@@ -53,7 +53,7 @@ function baseurl () {
  * @return string
  */
 function url ($file = '') {
-    return sprintf('/%s/%s', baseurl(), $file);
+    return sprintf('/%s/install.php%s', baseurl(), $file);
 }
 
 /**
