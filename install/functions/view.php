@@ -21,3 +21,13 @@ function view ($__view__, array $__data__ = []) {
 function path ($file) {
     return sprintf('%s/%s.php', basepath(), $file);
 }
+
+/**
+ * Get url to an asset
+ * 
+ * @param string $file
+ * @return string
+ */
+function asset ($file) {
+    return sprintf('/%s/%s', baseurl(basepath()), $file);
+}

@@ -38,9 +38,9 @@ function method () {
  * @param string $root
  * @return string
  */
-function baseurl () {
-    $base = trim(mb_basepath(), '/');
-    $root = trim(document_root(), '/');
+function baseurl ($base = null, $root = null) {
+    $base = trim($base ?: mb_basepath(), '/');
+    $root = trim($root ?: document_root(), '/');
     $lenght = strlen($root);
 
     return $base === $root ? '' : trim(substr($base, $lenght), '/');

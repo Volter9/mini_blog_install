@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <title><?php echo $title ?></title>
-        <link href="<?php echo url('install/css/main.css') ?>" 
+        <link href="<?php echo asset('install/css/main.css') ?>" 
               rel="stylesheet" 
               type="text/css"/>
     </head>
