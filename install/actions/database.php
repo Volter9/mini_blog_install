@@ -22,7 +22,8 @@ function action_get ($input, array $errors = []) {
         'description' => lang('database.description'),
         'url'         => url('?route=database'),
         'view'        => 'views/form',
-        'prefix'      => 'database.fields'
+        'prefix'      => 'database.fields',
+        'step'        => 2
     ]);
 }
 

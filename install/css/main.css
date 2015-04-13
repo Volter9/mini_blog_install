@@ -1,0 +1,265 @@
+/**
+ * Global
+ */
+
+html, 
+body {
+    font-family: sans-serif;
+    
+    margin: 0px;
+    padding: 0px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/**
+ * Common (.) and unique (#) styles
+ */
+
+#mini_blog {
+    font-size: 32px;
+    font-weight: 100;
+    text-align: center;
+    
+    margin: 25px 0px;
+}
+
+#mini_blog small {
+    font-size: 0.6em;
+}
+
+#content {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    
+    margin: 0px auto;
+    padding: 40px;
+    width: 880px;
+}
+
+#steps {
+    margin-bottom: 2em;
+}
+
+#steps ul {
+    list-style: none;
+    font-size: 0px;
+    
+    position: relative;
+    top: 0px;
+    left: 0px;
+    
+    margin: 0px;
+    padding: 0px;
+}
+
+#steps ul li {
+    border-bottom: 1px solid #aec6fb;
+    color: #bbb;
+    font-size: 14px;
+    text-align: center;
+    
+    position: relative;
+    top: 0px;
+    left: 0px;
+    
+    display: inline-block;
+    padding-bottom: 8px;
+    width: 25%;
+}
+
+#steps ul li:before {
+    background-color: #7ea4f8;
+    border-radius: 100%;
+    content: "";
+    
+    position: absolute;
+    bottom: -3px;
+    left: calc(50% - 2px);
+    
+    height: 5px;
+    width: 5px;
+    z-index: 1;
+}
+
+#steps ul li.completed {
+    color: #4ea6f8
+}
+
+.button {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    color: #777;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 4px 8px;
+}
+
+.button:hover,
+.button.disabled {
+    border-color: #e8e8e8;
+    color: #999
+}
+
+.button.blue {
+    border: 1px solid #7ea4f8;
+    color: #4ea6f8
+}
+
+.button.blue:hover {
+    border-color: #aec6fb
+}
+
+.button.green {
+    border: 1px solid #54cd20;
+    color: #54cd20
+}
+
+.button.green:hover {
+    border-color: #70e13f
+}
+
+.button.red {
+    border: 1px solid #f8547e;
+    color: #f8547e
+}
+
+.button.red:hover {
+    border-color: #fa85a3
+}
+
+.clearfix:after {
+    content: "";
+    font-size: 0px;
+    visibility: hidden;
+    
+    clear: both;
+    display: block;
+    height: 0px;
+    width: 100%;
+} 
+
+.clearfix .left {
+    float: left;
+}
+
+.clearfix .right {
+    float: right;
+}
+
+.errors {
+    border: 1px solid #fcc8c8;
+    border-radius: 4px;
+    
+    margin-bottom: 1em;
+    padding: 10px;
+}
+
+.errors .error {
+    color: #e87373;
+    font-size: 12px !important;
+    
+    margin: 0px !important;
+}
+
+/**
+ * Common layout styles
+ */
+
+#content h1 {
+    font-size: 1.7em;
+}
+
+#content h1, 
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6 {
+    font-weight: normal;
+    
+    margin-top: 0px;
+    margin-bottom: 0.75em;
+}
+
+#content p {
+    font-size: 14px;
+    line-height: 140%;
+    
+    margin: 0px;
+    margin-bottom: 1em;
+}
+
+/**
+ * Forms
+ */
+
+form select,
+form input {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    
+    width: 100%;
+}
+
+form input {
+    font-size: 12px;
+    padding: 6px;
+}
+
+form select {
+    width: 50%;
+    margin-top: 5px;
+}
+
+form button {
+    border-radius: 3px;
+    font-size: 12px;
+    outline: none;
+    
+    display: block;
+    padding: 4px 12px !important;
+}
+
+form .field {
+    margin-bottom: 18px;
+}
+
+form .field label {
+    font-size: 14px;
+    line-height: 29px;
+    
+    float: left;
+    display: block;
+    width: 22%;
+}
+
+form .field .container {
+    float: right;
+    display: block;
+    width: 78%;
+}
+
+/**
+ * Table
+ */
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+table td {
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    
+    padding: 10px;
+    width: 50%;
+}

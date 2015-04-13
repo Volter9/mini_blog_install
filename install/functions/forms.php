@@ -63,13 +63,9 @@ function input_field ($name, $label, $type, $value = null) {
 }
 
 function generate_field ($type, $name, $label, $value = null) {
-    $result = '';
     $function = sprintf('%s_field', $type);
     
-    $result .= label($name, $label);
-    $result .= $function($name, $label, $value);
-    
-    return $result;
+    return $function($name, $label, $value);
 }
 
 /**

@@ -27,7 +27,7 @@ function document_root () {
  * Load language
  */
 function load_language () {
-    $language = cookie('language') or redirect();
+    $language = cookie('language') or redirect('?route=language');
     
     load_lang("install/lang/$language");
 }
@@ -40,6 +40,15 @@ function load_language () {
  */
 function mb_basepath () {
     return defined('MF_BASEPATH') ? MF_BASEPATH : BASEPATH;
+}
+
+/**
+ * Get mini_blog's version
+ * 
+ * @return string
+ */
+function mb_version () {
+    return defined('MF_VERSION') ? MF_VERSION : 'v1.0';
 }
 
 require 'array.php';

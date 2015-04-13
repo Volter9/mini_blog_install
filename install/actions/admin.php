@@ -22,7 +22,8 @@ function action_get ($input, array $errors = []) {
         'description' => lang('admin.description'),
         'url'         => url('?route=admin'),
         'view'        => 'views/form',
-        'prefix'      => 'admin.fields'
+        'prefix'      => 'admin.fields',
+        'step'        => 3
     ]);
 }
 
@@ -39,15 +40,11 @@ function action_post ($input) {
     try {
         required_fields($input, $keys, 'admin.errors.empty');
         
-        validate(
-            $input['password'] === $input['password_confirmation'],
-            'admin.errors.passwords_not_match'
-        );
+        $confirm = $input['password'] === $input['password_confirmation'];
+        $mail    = filter_var($input['mail'], FILTER_VALIDATE_EMAIL);
         
-        validate(
-            filter_var($input['mail'], FILTER_VALIDATE_EMAIL),
-            'admin.errors.invalid_mail'
-        );
+        validate($confirm, 'admin.errors.passwords_not_match');
+        validate($mail   , 'admin.errors.invalid_mail');
     }
     catch (Exception $e) {
         return action_get($input, [lang($e->getMessage())]);
@@ -55,17 +52,4 @@ function action_post ($input) {
     
     session('admin', $input);
     redirect('?route=finish');
-}
-
-/**
- * Rather an assert than validation
- * 
- * @throws \Exception
- * @param bool $condition
- * @param string $message
- */
-function validate ($condition, $message) {
-    if (!$condition) {
-        throw new Exception($message);
-    }
 }

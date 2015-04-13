@@ -1,16 +1,6 @@
 <?php
 
 /**
- * Here are some thoughts:
- * 
- * I need to create a action which checks writing permissions on:
- * - MB_BASEPATH/app/config.php
- * - MB_BASEPATH/app/install
- * 
- * I need to came up with some logic that checks permissions...
- */
-
-/**
  * GET method of default action
  */
 function action_get () {

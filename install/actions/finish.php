@@ -4,7 +4,8 @@
  * Action initialize
  */
 function action_init () {
-    session('admin') && session('database') or redirect('?route=database');
+    session('database') or redirect('?route=database');
+    session('admin') or redirect('?route=admin');
     
     load_language();
 }
@@ -20,7 +21,8 @@ function action_get ($input) {
         'view'     => 'views/finish',
         'database' => session('database'),
         'admin'    => array_except(session('admin'), ['password_confirmation']),
-        'url'      => url('?route=finish')
+        'url'      => url('?route=finish'),
+        'step'     => 4
     ]);
 }
 

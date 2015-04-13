@@ -7,7 +7,7 @@
 <form action="<?php echo $url ?>" method="post">
     <?php view('blocks/form', compact('fields', 'input', 'prefix')) ?>
     
-    <button type="submit">
+    <button class="button blue" type="submit">
         <?php echo lang('common.continue') ?> 
     </button>
 </form>
