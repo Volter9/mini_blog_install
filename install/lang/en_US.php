@@ -70,6 +70,7 @@ return [
         
         'database' => 'MySQL database connection details',
         'admin'    => 'Administrator data',
+        'installed' => 'mini_blog was installed! ',
         
         'visit' => [
             'admin' => 'Visit the admin panel',
