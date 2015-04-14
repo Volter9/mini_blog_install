@@ -3,7 +3,7 @@
 return [
     'common' => [
         'continue' => 'Continue',
-        'install'  => 'Установить'
+        'install'  => 'Install'
     ],
     
     'steps' => [
