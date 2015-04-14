@@ -13,6 +13,13 @@ return [
         'finish'   => 'Done!'
     ],
     
+    'post' => [
+        'title' => 'Hello world!',
+        'url'   => 'hello-world',
+        'description' => 'This is your first blog post! :)',
+        'text'  => 'Hello! As you can see, it\'s your **first blog post**!',
+    ],
+        
     'database' => [
         'title' => 'Database setup',
         'description' => 'To work with mini_blog, you need a MySQL database. In the form below, please, specify connection details:',

@@ -38,7 +38,18 @@ function action_post ($input) {
             sprintf('%s/install/resources/config', basepath())
         );
         
-        upload_dump(sprintf('%s/mini_blog.sql', mb_basepath()));
+        $user = array_merge(['group_id' => 1], array_except(
+            session('admin'), ['password_confirmation']
+        ));
+        
+        $pdo = create_pdo(session('database'));
+        
+        upload_dump($pdo, sprintf('%s/install/resources/dump.sql', basepath()));
+        
+        $id   = insert($pdo, 'users', $user);
+        $post = array_merge(['user_id' => $id, 'category_id' => 1], lang('post'));
+        
+        insert($pdo, 'posts', $post);
         
         @unlink(sprintf('%s/index.php', basepath()));
         
@@ -52,10 +63,10 @@ function action_post ($input) {
 /**
  * Upload mini_blog mysql dump
  * 
+ * @param \PDO $pdo
  * @param string $file
  */
-function upload_dump ($file) {
-    $pdo = create_pdo(session('database'));
+function upload_dump (PDO $pdo, $file) {
     $pdo->exec(file_get_contents($file));
 }
 

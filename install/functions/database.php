@@ -54,3 +54,41 @@ function check_database (PDO $pdo, $database) {
         throw new Exception('database.errors.database');
     }
 }
+
+/**
+ * Insert a row into database
+ * 
+ * @param \PDO $pdo
+ * @param string $table
+ * @param array $data
+ * @return int|bool
+ */
+function insert (PDO $pdo = null, $table, array $data) {
+	$query = 'INSERT INTO %s (%s) VALUES (%s)';
+	
+	$columns = implode(',', array_keys($data));
+	$placeholders = chop(str_repeat('?,', count($data)), ',');
+	
+	$query = sprintf($query, $table, $columns, $placeholders);
+	
+	$statement = prepare($query, array_values($data), $pdo);
+	
+	return $statement->rowCount() > 0
+		? $pdo->lastInsertId()
+		: false;
+}
+
+/**
+ * Prepare PDO statement
+ * 
+ * @param string $query
+ * @param array $parameters
+ * @param \PDO $pdo
+ * @return \PDOStatement
+ */
+function prepare ($query, array $parameters, PDO $pdo = null) {
+	$statement = $pdo->prepare($query);
+	$statement->execute($parameters);
+	
+	return $statement;
+}
