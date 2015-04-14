@@ -4,6 +4,8 @@
  * Action initialize
  */
 function action_init () {
+    unset($_SESSION['errors']);
+    
     load_language();
 }
 
@@ -16,7 +18,7 @@ function action_init () {
 function action_get ($input, array $errors = []) {
     view('layout', [
         'errors'      => $errors,
-        'input'       => $input,
+        'input'       => array_merge($input, session('database') ?: []),
         'title'       => lang('database.title'),
         'fields'      => lang('database.form'),
         'description' => lang('database.description'),

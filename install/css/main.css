@@ -43,6 +43,11 @@ a {
     width: 880px;
 }
 
+#content a {
+    color: #4ea6f8;
+    text-decoration: underline;
+}
+
 #steps {
     margin-bottom: 2em;
 }
@@ -89,7 +94,7 @@ a {
 }
 
 #steps ul li.completed {
-    color: #4ea6f8
+    color: #4ea6f8;
 }
 
 #end {
@@ -173,11 +178,11 @@ a {
     width: 100%;
 } 
 
-.clearfix .left {
+.left {
     float: left;
 }
 
-.clearfix .right {
+.right {
     float: right;
 }
 

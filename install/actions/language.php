@@ -4,9 +4,7 @@
  * GET method of default action
  */
 function action_get () {
-    $language = 'en_US';
-    
-    load_lang("install/lang/$language");
+    load_lang('install/lang/en_US');
     
     view('layout', [
         'view'  => 'views/language',

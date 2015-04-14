@@ -47,7 +47,7 @@ return [
     
     'admin' => [
         'title' => 'Administrator creation',
-        'description' => 'You have to create an admin for mini_blog:',
+        'description' => 'You have to create an adminstrator for mini_blog:',
         
         'fields' => [
             'username' => 'Admin username',
@@ -78,6 +78,7 @@ return [
         'database' => 'MySQL database connection details',
         'admin'    => 'Administrator data',
         'installed' => 'mini_blog was installed! ',
+        'fix' => 'Edit',
         
         'visit' => [
             'admin' => 'Visit the admin panel',

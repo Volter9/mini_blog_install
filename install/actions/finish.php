@@ -45,6 +45,8 @@ function action_post ($input) {
         
         @unlink(sprintf('%s/index.php', basepath()));
         
+        session_destroy();
+        
         view('views/start', ['title' => lang('finish.end')]);
     }
     catch (Exception $e) {
