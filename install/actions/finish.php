@@ -38,18 +38,10 @@ function action_post ($input) {
             sprintf('%s/install/resources/config', basepath())
         );
         
-        $user = array_merge(['group_id' => 1], array_except(
-            session('admin'), ['password_confirmation']
-        ));
-        
         $pdo = create_pdo(session('database'));
         
         upload_dump($pdo, sprintf('%s/install/resources/dump.sql', basepath()));
-        
-        $id   = insert($pdo, 'users', $user);
-        $post = array_merge(['user_id' => $id, 'category_id' => 1], lang('post'));
-        
-        insert($pdo, 'posts', $post);
+        create_post($pdo, create_user($pdo));
         
         @unlink(sprintf('%s/index.php', basepath()));
         
@@ -58,6 +50,34 @@ function action_post ($input) {
     catch (Exception $e) {
         die($e->getMessage());
     }
+}
+
+/**
+ * Create a user
+ * 
+ * @param \PDO $pdo
+ * @return int
+ */
+function create_user (PDO $pdo) {
+    $user = array_except(session('admin'), ['password_confirmation']);
+    $user = array_merge(['group_id' => 1], $user);
+    
+    $user['password'] = md5($user['password']);
+    
+    return insert($pdo, 'users', $user);
+}
+
+/**
+ * Create a post
+ * 
+ * @param \PDO $pdo
+ * @param int $id
+ */
+function create_post (PDO $pdo, $id) {
+    $post = ['user_id' => $id, 'category_id' => 1];
+    $post = array_merge($post, lang('post'));
+    
+    insert($pdo, 'posts', $post);
 }
 
 /**
