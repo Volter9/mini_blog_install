@@ -39,8 +39,8 @@ function method () {
  * @return string
  */
 function baseurl ($base = null, $root = null) {
-    $base = trim($base ?: mb_basepath(), '/');
-    $root = trim($root ?: document_root(), '/');
+    $base = trim($base ? $base : mb_basepath(), '/');
+    $root = trim($root ? $root : document_root(), '/');
     $lenght = strlen($root);
 
     return $base === $root ? '' : trim(substr($base, $lenght), '/');
@@ -53,7 +53,9 @@ function baseurl ($base = null, $root = null) {
  * @return string
  */
 function url ($file = '') {
-    return sprintf('/%s/%s', baseurl(), $file);
+    $base = sprintf('/%s/%s', baseurl(), $file);
+    
+    return preg_replace('/\/+/', '/', $base);
 }
 
 /**

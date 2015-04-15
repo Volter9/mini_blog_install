@@ -47,7 +47,7 @@ function array_set (&$array, $key, $value) {
 		$key = array_shift($keys);
 		
 		if ( !isset($curs[$key]) ) {
-			$curs[$key] = [];
+			$curs[$key] = array();
 		}
 	}
 	

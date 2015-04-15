@@ -1,76 +1,76 @@
 <?php 
 
-return [
-    'common' => [
+return array(
+    'common' => array(
         'continue' => 'Continue',
-        'install'  => 'Install'
-    ],
+        'install'  => 'Установить'
+    ),
     
-    'steps' => [
+    'steps' => array(
         'language' => 'Choose language',
         'database' => 'Database setup',
         'admin'    => 'Administrator creation',
         'finish'   => 'Done!'
-    ],
+    ),
     
-    'post' => [
+    'post' => array(
         'title' => 'Hello world!',
         'url'   => 'hello-world',
         'description' => 'This is your first blog post! :)',
         'text'  => 'Hello! As you can see, it\'s your **first blog post**!',
-    ],
+    ),
         
-    'database' => [
+    'database' => array(
         'title' => 'Database setup',
         'description' => 'To work with mini_blog, you need a MySQL database. In the form below, please, specify connection details:',
         
-        'fields' => [
+        'fields' => array(
             'host'     => 'MySQL database host',
             'database' => 'Database name',
             'username' => 'Database user',
             'password' => 'Database user\'s password'
-        ],
+        ),
         
-        'errors' => [
+        'errors' => array(
             'connection' => 'Couldn\'t connect to MySQL',
             'database'   => 'Couldn\'t connect to MySQL database',
             'empty'      => 'The form isn\'t completely filled'
-        ],
+        ),
         
-        'form' => [
+        'form' => array(
             'database' => 'text', 
             'host'     => 'text', 
             'username' => 'text', 
             'password' => 'password'
-        ]
-    ],
+        )
+    ),
     
-    'admin' => [
+    'admin' => array(
         'title' => 'Administrator creation',
-        'description' => 'You have to create an adminstrator for mini_blog:',
+        'description' => 'You have to create an admin for mini_blog:',
         
-        'fields' => [
+        'fields' => array(
             'username' => 'Admin username',
             'password' => 'Admin password',
             'password_confirmation' => 'Confirm admin password',
             'mail'     => 'Admin email'
-        ],
+        ),
         
-        'errors' => [
+        'errors' => array(
             'empty'               => 'The form isn\'t completely filled',
             'passwords_not_match' => 'Passwords don\'t match',
             'invalid_mail'        => 'Admin email isn\'t a valid email address'
-        ],
+        ),
         
-        'form' => [
+        'form' => array(
             'username' => 'text', 
             'password' => 'password',
             'password_confirmation' => 'password',
             'mail'     => 'text'
-        ]
-    ],
+        )
+    ),
     
-    'finish' => [
+    'finish' => array(
         'title' => 'Finishing install',
         'end'   => 'mini_blog was installed!',
         'text'  => 'Everything is ready for mini_blog installation. Check the supplied data below, and, if everything is correct, finish the installation.',
@@ -78,11 +78,10 @@ return [
         'database' => 'MySQL database connection details',
         'admin'    => 'Administrator data',
         'installed' => 'mini_blog was installed! ',
-        'fix' => 'Edit',
         
-        'visit' => [
+        'visit' => array(
             'admin' => 'Visit the admin panel',
             'site'  => 'Visit your site'
-        ]
-    ]
-];
+        )
+    )
+);

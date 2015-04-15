@@ -16,14 +16,14 @@ function action_init () {
  * @param array $input
  */
 function action_get ($input) {
-    view('layout', [
+    view('layout', array(
         'title'    => lang('finish.title'),
         'view'     => 'views/finish',
         'database' => session('database'),
-        'admin'    => array_except(session('admin'), ['password_confirmation']),
+        'admin'    => array_except(session('admin'), array('password_confirmation')),
         'url'      => url('?route=finish'),
         'step'     => 4
-    ]);
+    ));
 }
 
 /**
@@ -45,9 +45,7 @@ function action_post ($input) {
         
         @unlink(sprintf('%s/index.php', basepath()));
         
-        session_destroy();
-        
-        view('views/start', ['title' => lang('finish.end')]);
+        view('views/start', array('title' => lang('finish.end')));
     }
     catch (Exception $e) {
         die($e->getMessage());
@@ -61,8 +59,8 @@ function action_post ($input) {
  * @return int
  */
 function create_user (PDO $pdo) {
-    $user = array_except(session('admin'), ['password_confirmation']);
-    $user = array_merge(['group_id' => 1], $user);
+    $user = array_except(session('admin'), array('password_confirmation'));
+    $user = array_merge(array('group_id' => 1), $user);
     
     $user['password'] = md5($user['password']);
     
@@ -76,7 +74,7 @@ function create_user (PDO $pdo) {
  * @param int $id
  */
 function create_post (PDO $pdo, $id) {
-    $post = ['user_id' => $id, 'category_id' => 1];
+    $post = array('user_id' => $id, 'category_id' => 1);
     $post = array_merge($post, lang('post'));
     
     insert($pdo, 'posts', $post);
@@ -117,7 +115,7 @@ function modify_config ($original, $modified) {
  */
 function remove_directory ($path) {
     // Planning to add option to "delete installer after install"
-    $files = array_diff(scandir($path), ['.', '..']); 
+    $files = array_diff(scandir($path), array('.', '..')); 
     
     foreach ($files as $file) { 
         is_dir("$path/$file") 

@@ -20,11 +20,11 @@
         <section id="content">
             <div id="steps">
                 <ul>
-                <?php foreach (lang('steps') as $field): ?>
+                <?php foreach (lang('steps') as $field): ?> 
                     <li class="<?php echo $step > 0 ? 'completed' : '' ?>">
-                        <?php echo $field; $step -- ?>
+                        <?php echo $field; $step -- ?> 
                     </li>
-                <?php endforeach; ?>
+                <?php endforeach; ?> 
                 </ul>
             </div>
             

@@ -4,8 +4,6 @@
  * Action initialize
  */
 function action_init () {
-    unset($_SESSION['errors']);
-    
     load_language();
 }
 
@@ -15,10 +13,10 @@ function action_init () {
  * @param array $input
  * @param array $errors
  */
-function action_get ($input, array $errors = []) {
-    view('layout', [
+function action_get ($input, array $errors = array()) {
+    view('layout', array(
         'errors'      => $errors,
-        'input'       => array_merge($input, session('admin') ?: []),
+        'input'       => $input,
         'title'       => lang('admin.title'),
         'fields'      => lang('admin.form'),
         'description' => lang('admin.description'),
@@ -26,7 +24,7 @@ function action_get ($input, array $errors = []) {
         'view'        => 'views/form',
         'prefix'      => 'admin.fields',
         'step'        => 3
-    ]);
+    ));
 }
 
 /**
@@ -36,7 +34,7 @@ function action_get ($input, array $errors = []) {
  * @param array $errors
  */
 function action_post ($input) {
-    $keys  = ['username', 'password', 'password_confirmation', 'mail'];
+    $keys  = array('username', 'password', 'password_confirmation', 'mail');
     $input = array_extract($input, $keys);
     
     try {
@@ -49,7 +47,7 @@ function action_post ($input) {
         validate($mail   , 'admin.errors.invalid_mail');
     }
     catch (Exception $e) {
-        return action_get($input, [lang($e->getMessage())]);
+        return action_get($input, array(lang($e->getMessage())));
     }
     
     session('admin', $input);
