@@ -8,7 +8,7 @@
             $field, 
             lang("$prefix.$field"), 
             array_get($input, $field)
-        ); ?>
+        ) ?>
     </div>
 </div>
 <?php endforeach; ?> 

@@ -3,7 +3,7 @@
 /** 
  * Global variables 
  */
-$lang = [];
+$lang = array();
 
 /**
  * Get base path
@@ -20,7 +20,9 @@ function basepath () {
  * @return string
  */
 function document_root () {
-    return array_get($_SERVER, 'DOCUMENT_ROOT') ?: '';
+    $root = array_get($_SERVER, 'DOCUMENT_ROOT');
+    
+    return  $root ? $root : '';
 }
 
 /**

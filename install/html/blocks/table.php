@@ -4,5 +4,5 @@
         <td><?php echo lang("$prefix.$key") ?></td>
         <td><?php echo $value ?></td>
     </tr>
-<?php endforeach; ?>
+<?php endforeach; ?> 
 </table>

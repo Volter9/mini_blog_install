@@ -6,12 +6,12 @@
 function action_get () {
     load_lang('install/lang/en_US');
     
-    view('layout', [
+    view('layout', array(
         'view'  => 'views/language',
         'title' => 'Choose installation language',
         'url'   => url(),
         'step'  => 1
-    ]);
+    ));
 }
 
 /**
@@ -21,9 +21,7 @@ function action_get () {
  */
 function action_post ($input) {
     if (!array_get($input, 'language')) {
-        redirect_with_errors('', [
-            'Language field must be filled.'
-        ]);
+        redirect_with_errors('', array('Language field must be filled.'));
     }
     
     setcookie('language', array_get($input, 'language'));

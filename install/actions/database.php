@@ -15,10 +15,12 @@ function action_init () {
  * @param array $input
  * @param array $errors
  */
-function action_get ($input, array $errors = []) {
-    view('layout', [
+function action_get ($input, array $errors = array()) {
+    $database = session('database');
+    
+    view('layout', array(
         'errors'      => $errors,
-        'input'       => array_merge($input, session('database') ?: []),
+        'input'       => array_merge($input, $database ? $database : array()),
         'title'       => lang('database.title'),
         'fields'      => lang('database.form'),
         'description' => lang('database.description'),
@@ -26,7 +28,7 @@ function action_get ($input, array $errors = []) {
         'view'        => 'views/form',
         'prefix'      => 'database.fields',
         'step'        => 2
-    ]);
+    ));
 }
 
 /**
@@ -35,7 +37,7 @@ function action_get ($input, array $errors = []) {
  * @param array $input
  */
 function action_post ($input) {
-    $keys  = ['database', 'host', 'username', 'password'];
+    $keys  = array('database', 'host', 'username', 'password');
     $input = array_extract($input, $keys);
     
     try {
@@ -46,7 +48,7 @@ function action_post ($input) {
         check_database(create_connection($input), $input['database']);
     }
     catch (Exception $e) {
-        return action_get($input, [lang($e->getMessage())]);
+        return action_get($input, array(lang($e->getMessage())));
     }
     
     session('database', $input);

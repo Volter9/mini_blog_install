@@ -6,7 +6,7 @@
  * @param string $__view__
  * @param array $__data__
  */
-function view ($__view__, array $__data__ = []) {
+function view ($__view__, array $__data__ = array()) {
     $__view__ = path("install/html/$__view__");
     
     extract($__data__);

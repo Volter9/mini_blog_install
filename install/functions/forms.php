@@ -74,16 +74,17 @@ function generate_field ($type, $name, $label, $value = null) {
  * @param array $scheme
  * @return string
  */
-function generate_form (array $scheme, array $input = []) {
+function generate_form (array $scheme, array $input = array()) {
     $result = '';
     
     foreach ($scheme as $field => $data) {
         $function = sprintf('%s_field', $data['type']);
         
         $label = $data['label'];
+        $value = array_get($input, $field);
         
         $result .= label($field, $label);
-        $result .= $function($field, $label, array_get($input, $field) ?: '');
+        $result .= $function($field, $label, $value ? $value : '');
         $result .= '<br/>';
     }
     

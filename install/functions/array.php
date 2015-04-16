@@ -34,7 +34,7 @@ function array_get ($array, $key) {
  * @param mixed $value
  * @return mixed
  */
-function array_set (&$array, $key, $value) {
+function array_set (array &$array, $key, $value) {
 	$keys = explode('.', $key);
 	
 	$temp = $array;
@@ -47,7 +47,7 @@ function array_set (&$array, $key, $value) {
 		$key = array_shift($keys);
 		
 		if ( !isset($curs[$key]) ) {
-			$curs[$key] = [];
+			$curs[$key] = array();
 		}
 	}
 	
