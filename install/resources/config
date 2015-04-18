@@ -8,9 +8,9 @@ return array(
     'database' => array(
         'autoload' => true,
         'default'  => array(
+            'name'     => '%s',
             'host'     => '%s',
             'user'     => '%s',
-            'name'     => '%s',
             'password' => '%s',
             'charset'  => 'utf8'
         )
