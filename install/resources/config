@@ -8,20 +8,22 @@ return array(
     'database' => array(
         'autoload' => true,
         'default'  => array(
-            'name'     => '%s',
             'host'     => '%s',
             'user'     => '%s',
+            'name'     => '%s',
             'password' => '%s',
             'charset'  => 'utf8'
         )
     ),
     
     'templates' => array(
-        'directory' => MF_BASEPATH . 'templates/',
-        'template'  => 'minimalism'
+        'directory' => base_path('templates/'),
+        'template'  => 'minimalism',
+        'layout'    => 'main'
     ),
     
     'routing' => array(
+        'base_url' => 'http://php.sandbox/',
         'symbols' => array(
             '/:any' => '/?([\d\w\-_]+)',
             '/:num' => '/?(\d+)'
@@ -29,17 +31,14 @@ return array(
     ),
     
     'hooks' => array(
-        MF_APP_DIR . 'bootstrap',
-        MF_APP_DIR . 'routes',
-        MF_APP_DIR . 'admin/routes'
+        app_path('bootstrap')
     ),
     
     'autoload' => array(
         'models' => array('users'),
         'files'  => array(
-            'app/admin/components/loader',
-            'app/admin/components/admin',
-            'app/admin/components/modules'
+            'app/components/loader',
+            'app/components/modules'
         )
     ),
     
