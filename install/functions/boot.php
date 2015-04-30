@@ -50,7 +50,7 @@ function mb_basepath () {
  * @return string
  */
 function mb_version () {
-    return defined('MF_VERSION') ? MF_VERSION : 'v1.0';
+    return defined('MB_VERSION') ? MB_VERSION : 'v1.0';
 }
 
 require 'array.php';
