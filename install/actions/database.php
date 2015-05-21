@@ -18,9 +18,14 @@ function action_init () {
 function action_get ($input, array $errors = array()) {
     $database = session('database');
     
+    $input = array_merge($input, $database ? $database : array(
+        'host'     => 'localhost',
+        'username' => 'root'
+    ));
+    
     view('layout', array(
         'errors'      => $errors,
-        'input'       => array_merge($input, $database ? $database : array()),
+        'input'       => $input,
         'title'       => lang('database.title'),
         'fields'      => lang('database.form'),
         'description' => lang('database.description'),
@@ -52,5 +57,6 @@ function action_post ($input) {
     }
     
     session('database', $input);
+    
     redirect('?route=admin');
 }

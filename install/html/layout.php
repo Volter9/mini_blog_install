@@ -9,25 +9,9 @@
     </head>
     
     <body>
-        <h1 id="mini_blog">
-            mini_blog
-            <small>
-                <?php echo mb_version() ?> 
-            </small>
-        </h1>
+        <?php view('blocks/header', $__data__) ?>
         
-        <!-- Passing explicitly $__data__ -->
-        <section id="content">
-            <div id="steps">
-                <ul>
-                <?php foreach (lang('steps') as $field): ?>
-                    <li class="<?php echo $step > 0 ? 'completed' : '' ?>">
-                        <?php echo $field; $step -- ?>
-                    </li>
-                <?php endforeach; ?>
-                </ul>
-            </div>
-            
+        <section class="wrapper" id="content">
             <?php view($view, $__data__) ?> 
         </section>
     </body>

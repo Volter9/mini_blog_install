@@ -2,7 +2,7 @@
 
 <p>Choose installation language, please</p>
 
-<form action="<?php echo $url ?>" method="post">
+<form class="form" action="<?php echo $url ?>" method="post">
     <?php $errors = session('errors') and view('blocks/errors', compact('errors')) ?> 
     
     <div class="field clearfix">
@@ -15,7 +15,9 @@
         </select>
     </div>
     
-    <button class="button blue" type="submit">
-        Select
-    </button>
+    <div class="clearfix">
+        <button class="right button blue" type="submit">
+            Select
+        </button>
+    </div>
 </form>

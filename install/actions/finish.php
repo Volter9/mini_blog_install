@@ -107,23 +107,3 @@ function modify_config ($original, $modified) {
     array_unshift($array, $file);
     file_put_contents($original, call_user_func_array('sprintf', $array));
 }
-
-/**
- * Remove recursively directory
- * 
- * @link http://us3.php.net/rmdir#110489
- * @param string $path
- * @return bool
- */
-function remove_directory ($path) {
-    // Planning to add option to "delete installer after install"
-    $files = array_diff(scandir($path), array('.', '..')); 
-    
-    foreach ($files as $file) { 
-        is_dir("$path/$file") 
-            ? remove_directory("$path/$file") 
-            : unlink("$path/$file"); 
-    } 
-    
-    return rmdir($path);
-}

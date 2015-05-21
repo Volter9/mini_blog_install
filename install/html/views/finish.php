@@ -9,10 +9,14 @@
     </a>
 </p>
 
-<?php view('blocks/table', array(
+<?php 
+$database['password'] = str_repeat('*', strlen($database['password']));
+
+view('blocks/table', array(
     'data' => $database,
     'prefix' => 'database.fields'
-)) ?>
+)) 
+?>
 
 <p>
     <?php echo lang('finish.admin') ?>. 

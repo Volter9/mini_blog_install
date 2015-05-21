@@ -4,7 +4,7 @@
 
 html, 
 body {
-    font-family: sans-serif;
+    font-family: 'Open Sans', sans-serif;
     
     margin: 0px;
     padding: 0px;
@@ -22,25 +22,21 @@ a {
  * Common (.) and unique (#) styles
  */
 
+#header {
+    margin-bottom: 1em;
+}
+
 #mini_blog {
     font-size: 32px;
     font-weight: 100;
+    line-height: 100%;
     text-align: center;
     
-    margin: 25px 0px;
+    margin: 16px 0px;
 }
 
 #mini_blog small {
     font-size: 0.6em;
-}
-
-#content {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    
-    margin: 0px auto;
-    padding: 40px;
-    width: 880px;
 }
 
 #content a {
@@ -49,48 +45,25 @@ a {
 }
 
 #steps {
-    margin-bottom: 2em;
+    margin-top: 32px;
+    width: 78%;
 }
 
 #steps ul {
     list-style: none;
     font-size: 0px;
     
-    position: relative;
-    top: 0px;
-    left: 0px;
-    
     margin: 0px;
     padding: 0px;
 }
 
 #steps ul li {
-    border-bottom: 1px solid #aec6fb;
     color: #bbb;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
     
-    position: relative;
-    top: 0px;
-    left: 0px;
-    
     display: inline-block;
-    padding-bottom: 8px;
     width: 25%;
-}
-
-#steps ul li:before {
-    background-color: #7ea4f8;
-    border-radius: 100%;
-    content: "";
-    
-    position: absolute;
-    bottom: -3px;
-    left: calc(50% - 2px);
-    
-    height: 5px;
-    width: 5px;
-    z-index: 1;
 }
 
 #steps ul li.completed {
@@ -101,11 +74,12 @@ a {
     position: absolute;
     top: 50%;
     left: 50%;
+    
     text-align: center;
     transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
     
     height: 200px;
-    margin: 0px auto;
     width: 400px;
 }
 
@@ -115,20 +89,33 @@ a {
 }
 
 #end p {
+    font-size: 14px;
+    
     margin-bottom: 1.5em;
 }
 
 #end .button {
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 12px;
     
-    padding: 6px 8px;
+    margin-right: 10px;
+    padding: 4px 8px;
+}
+
+#end .button:last-child {
+    margin-right: 0px;
+}
+
+.wrapper {
+    margin: 0px auto;
+    width: 880px;
 }
 
 .button {
-    background-color: #f8f8f8;
+    background-color: #fff;
     border: 1px solid #ccc;
     color: #777;
+    cursor: pointer;
     text-align: center;
     box-sizing: border-box;
     padding: 4px 8px;
@@ -141,7 +128,7 @@ a {
 }
 
 .button.blue {
-    border: 1px solid #7ea4f8;
+    border: 1px solid #4ea6f8;
     color: #4ea6f8
 }
 
@@ -201,12 +188,22 @@ a {
     margin: 0px !important;
 }
 
+.form .field label {
+    text-align: left;
+    
+    width: auto;
+}
+
 /**
  * Common layout styles
  */
 
 #content h1 {
     font-size: 1.7em;
+}
+
+#content h2 {
+    font-size: 1.3em;
 }
 
 #content h1, 
@@ -250,7 +247,7 @@ form input {
 
 form select {
     width: 50%;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 form button {
@@ -267,18 +264,21 @@ form .field {
 }
 
 form .field label {
-    font-size: 14px;
-    line-height: 29px;
+    font-size: 12px;
+    line-height: 140%;
+    text-align: right;
     
     float: left;
     display: block;
-    width: 22%;
+    margin-top: 8px;
+    padding-right: 10px;
+    width: 20%;
 }
 
 form .field .container {
     float: right;
     display: block;
-    width: 78%;
+    width: 80%;
 }
 
 /**

@@ -6,9 +6,10 @@
  * @link https://gist.github.com/Volter9/e8568303a09716e72039
  * @param array $array
  * @param string $key
+ * @param mixed $default
  * @return mixed
  */
-function array_get ($array, $key) {
+function array_get ($array, $key, $default = false) {
 	$keys = explode('.', $key);
 	$key = array_shift($keys);
 	
@@ -19,7 +20,7 @@ function array_get ($array, $key) {
 	}
 	
 	if ($key !== null && !isset($array[$key])) {
-		return false;
+		return $default;
 	}
 	
 	return $array;

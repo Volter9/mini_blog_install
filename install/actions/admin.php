@@ -48,7 +48,7 @@ function action_post ($input) {
         $mail    = filter_var($input['mail'], FILTER_VALIDATE_EMAIL);
         
         validate($confirm, 'admin.errors.passwords_not_match');
-        validate($mail   , 'admin.errors.invalid_mail');
+        validate($mail, 'admin.errors.invalid_mail');
     }
     catch (Exception $e) {
         return action_get($input, array(lang($e->getMessage())));

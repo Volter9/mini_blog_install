@@ -35,7 +35,7 @@ function load_language () {
 }
 
 /**
- * Get mini_blog's basepath (constant MF_APP_DIR should be defined already,
+ * Get mini_blog's basepath (constant MF_BASEPATH should be defined already,
  * additional check is just in case)
  * 
  * @return string

@@ -24,10 +24,8 @@ require 'install/functions/boot.php';
 
 session_start();
 
-$route = array_get($_GET, 'route');
-
 route(
-    $route ? $route : 'default', 
+    array_get($_GET, 'route', 'default'),
     array_merge($_GET, $_POST)
 );
 
