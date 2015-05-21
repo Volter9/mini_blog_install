@@ -8,9 +8,9 @@
     
     <div class="right" id="steps">
         <ul>
-        <?php foreach (lang('steps') as $field): ?>
+        <?php foreach (lang('steps') as $route => $field): ?>
             <li class="<?php echo $step > 0 ? 'completed' : '' ?>">
-                <?php echo $field; $step -- ?>
+                <a href="<?php echo url("?route=$route") ?>"><?php echo $field; $step -- ?></a>
             </li>
         <?php endforeach; ?>
         </ul>

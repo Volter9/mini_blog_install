@@ -4,7 +4,10 @@
  * GET method of default action
  */
 function action_get () {
-    load_lang('install/lang/en_US');
+    $lang = cookie('language');
+    $lang = $lang ? $lang : 'en_US';
+    
+    load_lang("install/lang/$lang");
     
     view('layout', array(
         'view'  => 'views/language',

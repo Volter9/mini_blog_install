@@ -1,9 +1,17 @@
 <?php 
 
 return array(
+    'language' => array(
+        'welcome'  => 'Welcome!',
+        'choose'   => 'Choose installation language, please',
+        'none'     => 'None',
+        'language' => 'Language'
+    ),
+    
     'common' => array(
         'continue' => 'Continue',
-        'install'  => 'Install'
+        'install'  => 'Install',
+        'select'   => 'Select'
     ),
     
     'steps' => array(

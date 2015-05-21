@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
 --
 
 INSERT INTO `groups` (`id`, `name`, `privileges`) VALUES
-(1, 'admins', '');
+(1, 'admins', '*');
 
 -- --------------------------------------------------------
 

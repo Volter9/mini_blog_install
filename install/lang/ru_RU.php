@@ -1,9 +1,17 @@
 <?php 
 
 return array(
+    'language' => array(
+        'welcome'  => 'Добро пожаловать!',
+        'choose'   => 'Выберите язык установки, пожалуйста',
+        'none'     => 'Никакой',
+        'language' => 'Язык'
+    ),
+    
     'common' => array(
         'continue' => 'Продолжить',
-        'install'  => 'Установить'
+        'install'  => 'Установить',
+        'select'   => 'Выбрать'
     ),
     
     'steps' => array(

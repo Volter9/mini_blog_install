@@ -1,15 +1,15 @@
-<h1>Welcome!</h1>
+<h1><?php echo lang('language.welcome') ?></h1>
 
-<p>Choose installation language, please</p>
+<p><?php echo lang('language.choose') ?></p>
 
 <form class="form" action="<?php echo $url ?>" method="post">
     <?php $errors = session('errors') and view('blocks/errors', compact('errors')) ?> 
     
     <div class="field clearfix">
-        <label>Language:</label>
+        <label><?php echo lang('language.language') ?>:</label>
         
         <select name="language">
-            <option value="">None</option>
+            <option value=""><?php echo lang('language.none') ?></option>
             <option value="en_US">English</option>
             <option value="ru_RU">Русский (Russian)</option>
         </select>
@@ -17,7 +17,7 @@
     
     <div class="clearfix">
         <button class="right button blue" type="submit">
-            Select
+            <?php echo lang('common.select') ?>
         </button>
     </div>
 </form>

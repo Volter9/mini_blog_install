@@ -58,7 +58,6 @@ a {
 }
 
 #steps ul li {
-    color: #bbb;
     font-size: 12px;
     text-align: center;
     
@@ -66,7 +65,15 @@ a {
     width: 25%;
 }
 
-#steps ul li.completed {
+#steps ul li a {
+    color: #bbb;
+}
+
+#steps ul li a:hover {
+    text-decoration: underline;
+}
+
+#steps ul li.completed a {
     color: #4ea6f8;
 }
 
@@ -286,7 +293,6 @@ form .field .container {
  */
 
 table {
-    border: 1px solid #ccc;
     border-collapse: collapse;
     
     margin-bottom: 2em;
@@ -294,9 +300,13 @@ table {
 }
 
 table td {
-    border-bottom: 1px solid #ccc;
-    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
     
     padding: 10px;
     width: 50%;
+}
+
+p a.right {
+    font-size: 12px;
 }
