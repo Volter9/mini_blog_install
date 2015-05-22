@@ -46,7 +46,6 @@ a {
 
 #steps {
     margin-top: 32px;
-    width: 78%;
 }
 
 #steps ul {
@@ -59,10 +58,13 @@ a {
 
 #steps ul li {
     font-size: 12px;
-    text-align: center;
     
     display: inline-block;
-    width: 25%;
+    margin-left: 40px;
+}
+
+#steps ul li:first-child {
+    margin-left: 0px;
 }
 
 #steps ul li a {
