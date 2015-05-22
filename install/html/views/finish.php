@@ -3,7 +3,7 @@
 <p><?php echo lang('finish.text') ?></p>
 
 <p>
-    <?php echo lang('finish.database') ?>. 
+    <?php echo lang('finish.database') ?>: 
     <a class="right" href="<?php echo url('?route=database') ?>">
         <?php echo lang('finish.fix') ?> 
     </a>
@@ -19,7 +19,7 @@ view('blocks/table', array(
 ?>
 
 <p>
-    <?php echo lang('finish.admin') ?>. 
+    <?php echo lang('finish.admin') ?>: 
     <a class="right" href="<?php echo url('?route=admin') ?>">
         <?php echo lang('finish.fix') ?> 
     </a>
