@@ -18,10 +18,15 @@ function action_init () {
 function action_get ($input, array $errors = array()) {
     $database = session('database');
     
-    $input = array_merge($input, $database ? $database : array(
-        'host'     => 'localhost',
-        'username' => 'root'
-    ));
+    if (!$input) {
+        // Default values
+        $input = array(
+            'host'     => 'localhost',
+            'username' => 'root'
+        );
+    }
+    
+    $input = array_merge($input, $database ? $database : array());
     
     view('layout', array(
         'errors'      => $errors,

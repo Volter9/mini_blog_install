@@ -53,7 +53,10 @@ function baseurl ($base = null, $root = null) {
  * @return string
  */
 function url ($file = '') {
-    return sprintf('/%s/%s', baseurl(), $file);
+    $url = sprintf('%s/%s', baseurl(), $file);
+    $url = ltrim($url, '/');
+    
+    return "/$url";
 }
 
 /**
