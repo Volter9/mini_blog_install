@@ -2,8 +2,8 @@
 -- version 4.1.13
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Apr 14, 2015 at 01:10 AM
+-- Host: 127.0.0.1
+-- Generation Time: May 22, 2015 at 02:09 PM
 -- Server version: 5.6.22
 -- PHP Version: 5.5.20
 
@@ -11,7 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `mb_test`
+-- Database: `mini_blog_dump`
 --
 
 -- --------------------------------------------------------
@@ -76,6 +76,20 @@ CREATE TABLE IF NOT EXISTS `posts` (
   KEY `user_id` (`user_id`,`category_id`),
   KEY `category_id` (`category_id`),
   KEY `url` (`url`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE IF NOT EXISTS `settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) NOT NULL,
+  `value` text NOT NULL,
+  `group` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
