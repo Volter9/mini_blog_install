@@ -34,8 +34,15 @@ function action_get ($input) {
 function action_post ($input) {
     try {
         modify_config(
-            sprintf('%s/app/config.php', mb_basepath()), 
-            sprintf('%s/install/resources/config', basepath())
+            sprintf('%s/app/config/database.php', mb_basepath()), 
+            sprintf('%s/install/resources/database.php', basepath()),
+            session('database')
+        );
+        
+        modify_config(
+            sprintf('%s/app/config/i18n.php', mb_basepath()), 
+            sprintf('%s/install/resources/i18n.php', basepath()),
+            array('language' => cookie('language'))
         );
         
         $pdo = create_pdo(session('database'));
@@ -47,7 +54,9 @@ function action_post ($input) {
         
         session_destroy();
         
-        view('views/start', array('title' => lang('finish.end')));
+        view('views/start', array(
+            'title' => lang('finish.end')
+        ));
     }
     catch (Exception $e) {
         die($e->getMessage());
@@ -97,13 +106,19 @@ function upload_dump (PDO $pdo, $file) {
  * 
  * @param string $original
  * @param string $modified
+ * @param array $data
  */
-function modify_config ($original, $modified) {
+function modify_config ($original, $modified, array $data) {
     $file = file_get_contents($modified);
     
-    $array = array_values(session('database'));
-    $array[] = cookie('language');
+    $keys = array_map(
+        function ($v) { 
+            return ":$v";
+        }, 
+        array_keys($data)
+    );
     
-    array_unshift($array, $file);
-    file_put_contents($original, call_user_func_array('sprintf', $array));
+    $values = array_values($data);
+    
+    file_put_contents($original, str_replace($keys, $values, $file));
 }
