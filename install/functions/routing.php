@@ -28,7 +28,7 @@ function route ($action, array $parameters) {
  * @return string
  */
 function method () {
-    return strtolower(array_get($_SERVER, 'REQUEST_METHOD'));
+    return strtolower(array_get($_SERVER, 'REQUEST_METHOD', 'GET'));
 }
 
 /**
